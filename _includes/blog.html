@@ -1,0 +1,25 @@
+<section class="container container-blog">
+    <div class="row">
+	{% if paginator.posts %}
+        <div class="col-md-12">
+            <h2>Latest Updates:</h2>
+        </div>
+	
+		<article class="article  article--page  typeset">
+			<div class="col-sm-12 col-md-12">
+				{% for post in paginator.posts %}
+					<h4>{% assign date_format = site.date_format | default: "%d %b %Y" %}
+					    {{post.date | date: date_format}} - {{ post.title }}</h4>
+					<div class="col-sm-12 col-md-6">
+					{{ post.content }}
+					</div>
+					<div class="col-sm-12 col-md-6">
+					<img src="{{ post.feature_image }}">
+					</div>
+				{% endfor %}
+			<div>
+			
+        </article>
+	{% endif %}
+    </div>
+</section>

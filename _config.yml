@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Documenting the 2019 journey from one side of Canada to the other by unicycle.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://unicycledave.com" # the base hostname & protocol for your site
-copyright: 2018 Dave Cox. All Rights Reserved.
+copyright: 2019 Dave Cox. All Rights Reserved.
 
 # Build settings
 markdown: kramdown
@@ -19,9 +19,15 @@ snapwidget: 676335
 # Contacts
 email: dave@unicycledave.com
 twitter: '@UnicycleDave'
-instagram: '@unicycle-dave'
+instagram: '@unicycle_dave'
 # phone: +1-800-555-2016
 
 # Tracking
 # googleAnalitycsID: UA-83933844-1
+
+# Plugins:
+plugins_dir:
+- jekyll-paginate
+
+paginate: 1 #jekyll-paginate items per page
 
