@@ -1,25 +1,41 @@
 <section class="container container-blog">
     <div class="row">
-	{% if paginator.posts %}
-        <div class="col-md-12">
-            <h2>Latest Updates:</h2>
+     {% if paginator.posts %}
+      <div class="col-md-12">
+        <h2>Latest Updates:</h2>
+      </div>
+     
+      <div class="col-sm-12">
+      {% for post in paginator.posts %}
+        <h4>{% assign date_format = site.date_format | default: "%d %b %Y" %}
+          {{post.title}} 
+        <br><small>  {{post.date | date: date_format}}</small></h4>
+
+        <div class="col-sm-12 col-md-6">
+          {{ post.content }}
         </div>
-	
-		<article class="article  article--page  typeset">
-			<div class="col-sm-12 col-md-12">
-				{% for post in paginator.posts %}
-					<h4>{% assign date_format = site.date_format | default: "%d %b %Y" %}
-					    {{post.date | date: date_format}} - {{ post.title }}</h4>
-					<div class="col-sm-12 col-md-6">
-					{{ post.content }}
-					</div>
-					<div class="col-sm-12 col-md-6">
-					<img src="{{ post.feature_image }}">
-					</div>
-				{% endfor %}
-			<div>
-			
-        </article>
-	{% endif %}
-    </div>
+        <div class="col-sm-12 col-md-6">
+          <img class="img-fluid" src="{{ post.feature_image }}" >
+        </div>
+
+		<div class="col-sm-12 text-sm-left">
+		{% if paginator.previous_page %}
+			<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">&larr; Newer</a>
+		{% else %}
+			&larr; No Newer Posts
+		{% endif %}		
+		</div>
+
+		<div class="col-sm-12 text-sm-right">
+		{% if paginator.next_page %}
+			<a href="{{ site.baseurl }}{{ paginator.next_page_path }}">Older &rarr;</a>
+		{% else %}
+			No Older Posts &rarr;
+		{% endif %}
+		</div>
+
+      {% endfor %}
+	</div>
+    {% endif %}
+  </div>
 </section>
