@@ -4,12 +4,11 @@
       <div class="col-md-12">
         <h2>Latest Updates:</h2>
       </div>
-     
+
       <div class="col-sm-12">
       {% for post in paginator.posts %}
         <h4>{% assign date_format = site.date_format | default: "%d %b %Y" %}
-          {{post.title}} 
-        <br><small>  {{post.date | date: date_format}}</small></h4>
+          {{post.title}} - {{post.date | date: date_format}}</h4>
 
         <div class="col-sm-12 col-md-6">
           {{ post.content }}
@@ -38,4 +37,5 @@
 	</div>
     {% endif %}
   </div>
+  <br><br><br><br>
 </section>
